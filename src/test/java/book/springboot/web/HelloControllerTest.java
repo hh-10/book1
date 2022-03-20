@@ -11,15 +11,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest(controllers = HelloController.class)
+@RunWith(SpringRunner.class) //스프링부트 테스트와 JUnit 사이에 연결자 역할을 한다
+@WebMvcTest(controllers = HelloController.class) //Web(Spring MVC)에 집중할 수 있다
 public class HelloControllerTest {
 
-    @Autowired
+    @Autowired //스프링이 관리하는 빈을 주입 받는다
     private MockMvc mvc;
 
     @Test
-    public void helloreturn() throws Exception {
+    public void helloReturn() throws Exception {
         String hello = "hello";
 
         mvc.perform(get("/hello")).andExpect(status().isOk()).andExpect(content().string(hello));
