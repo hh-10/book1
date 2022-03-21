@@ -1,5 +1,6 @@
 package book.springboot.domain.posts;
 
+import book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ Entitiy 클래스에서 절대 setter 메소드를 만들지 않기
 @Getter
 @NoArgsConstructor //기본 생성자 자동 추가
 @Entity //테이블과 링크될 클래스
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //PK, auto_increment
